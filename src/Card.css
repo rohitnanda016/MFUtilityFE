@@ -1,0 +1,46 @@
+.customCard {
+    width: 98%;
+    border-radius : 16px;
+    box-shadow: 0 8px 16px 0 #BDC9D7;
+    overflow: hidden;          
+    margin:10px;
+    padding-left:75px;
+    margin-top:15px;
+    font-size:20px;
+    min-height:60px;
+  }
+
+  .profit {
+      color: #03c803;
+  }
+  .loss {
+      color: tomato;
+  }
+
+.portFolioCard {
+    min-height: 100px !important;
+    /* background-color:#CCC; */
+    margin:10px;
+    align-content: center;
+  }
+.heading {
+    font-size:25px;
+    margin:10px;
+    color:#7b7373;
+}
+.subHeading{
+    color:#7b7373;
+}
+.items {
+    font-family: 'Barlow, san-serif';    
+  }
+  
+.headline {
+    color: '#122740';
+    font-size: 1.25rem;
+    font-weight: 600;
+  }                    
+.divider {
+    background-color: '#d9e2ee';
+    margin: 0 20px;
+  }

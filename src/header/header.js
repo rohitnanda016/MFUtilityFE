@@ -1,13 +1,8 @@
 import React from 'react';
 
-const Header = () => {
-
-    return (
-        <div class="header">
-            Simple React App
-        </div>
-    )
-    
-};
-
+class Header extends React.Component{
+    render(){
+        return <div class="header">Mutual Fund Portfolio Tracker</div>
+    }
+}
 export default Header
