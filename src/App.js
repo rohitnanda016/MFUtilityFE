@@ -39,7 +39,7 @@ class App extends React.Component{
   }
 
   componentDidMount(){
-    fetch("http://host.docker.internal:7071/api/MFUtilityFunction")
+    fetch("http://mfutilityfunction.azurewebsites.net/api/MFUtilityFunction")
       .then(response=>response.json())
       .then(data=>this.setState(
         {
