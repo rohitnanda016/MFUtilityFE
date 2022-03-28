@@ -1,10 +1,11 @@
 import React from 'react';
 import Header from './header/header'
-import SchemeDetails from './Components/SchemeDetails'
-import OverallPortfolio from './Components/OverallPortfolio'
 import './App.css';
 import './Card.css';
 import Loader from "react-loader-spinner";
+import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
+import 'react-tabs/style/react-tabs.css'
+import MutualFundComponent from './Components/MutualFunds/MutualFundComponent';
 
 class App extends React.Component{
   constructor(props){
@@ -14,7 +15,8 @@ class App extends React.Component{
       totalInvestedAmount:0,
       changeFromLastDay:0,
       changeFromStartOfMonth:0,
-      schemeDetails:[]
+      schemeDetails:[],
+      tabIndex:0
     };
   }
 
@@ -25,13 +27,30 @@ class App extends React.Component{
     return(
       <React.Fragment>
         <Header/>
-        <OverallPortfolio totalPortfolioValue={this.state.totalPortfolioValue} totalInvestedAmount={this.state.totalInvestedAmount} changeFromLastDay={this.state.changeFromLastDay} changeFromStartOfMonth={this.state.changeFromStartOfMonth}/>
-        <div>
-          <div className="item heading">
-                      <b>Scheme Details</b>
-          </div>
-          { this.state.schemeDetails.map(schemeDetails => <SchemeDetails schemeDetails={schemeDetails} />) }
-        </div>
+
+        <Tabs selectedIndex={this.state.tabIndex} onSelect={index => this.setState({tabIndex: index })}>
+          <TabList>
+            <Tab>Mutual Fund Portfolio</Tab>
+            <Tab>Stock Portfolio</Tab>
+            <Tab>Fixed Deposits</Tab>
+            </TabList>
+            <TabPanel>
+              <MutualFundComponent 
+                totalPortfolioValue={this.state.totalPortfolioValue} 
+                totalInvestedAmount={this.state.totalInvestedAmount} 
+                changeFromLastDay={this.state.changeFromLastDay} 
+                changeFromStartOfMonth={this.state.changeFromStartOfMonth}
+                schemeDetails={this.state.schemeDetails}
+              />
+            </TabPanel>
+            <TabPanel>
+              <h1>Stocks Info Coming Up Soon.</h1>
+            </TabPanel>
+            <TabPanel>
+              <h1>FD Info Coming Up Soon.</h1>
+            </TabPanel>          
+        </Tabs>
+        
         
       </React.Fragment>
       

@@ -2,7 +2,7 @@ import React from 'react';
 
 class Header extends React.Component{
     render(){
-        return <div class="header">Mutual Fund Portfolio Tracker</div>
+        return <div class="header">Investment Portfolio Tracker</div>
     }
 }
 export default Header
