@@ -6,6 +6,8 @@ import Loader from "react-loader-spinner";
 import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
 import 'react-tabs/style/react-tabs.css'
 import MutualFundComponent from './Components/MutualFunds/MutualFundComponent';
+import FDComponent from './Components/MutualFunds/FDComponent';
+import OverallPortfolio from './Components/OverallPortfolio'
 
 class App extends React.Component{
   constructor(props){
@@ -30,10 +32,19 @@ class App extends React.Component{
 
         <Tabs selectedIndex={this.state.tabIndex} onSelect={index => this.setState({tabIndex: index })}>
           <TabList>
+            <Tab>Overall Portfolio</Tab>
             <Tab>Mutual Fund Portfolio</Tab>
             <Tab>Stock Portfolio</Tab>
             <Tab>Fixed Deposits</Tab>
             </TabList>
+            <TabPanel>
+            <OverallPortfolio
+                    totalPortfolioValue={this.state.totalPortfolioValue} 
+                    totalInvestedAmount={this.state.totalInvestedAmount}
+                    changeFromLastDay={this.state.changeFromLastDay}
+                    changeFromStartOfMonth={this.state.changeFromStartOfMonth}
+                />
+            </TabPanel>
             <TabPanel>
               <MutualFundComponent 
                 totalPortfolioValue={this.state.totalPortfolioValue} 
@@ -47,7 +58,13 @@ class App extends React.Component{
               <h1>Stocks Info Coming Up Soon.</h1>
             </TabPanel>
             <TabPanel>
-              <h1>FD Info Coming Up Soon.</h1>
+            <FDComponent 
+                totalPortfolioValue={this.state.totalPortfolioValue} 
+                totalInvestedAmount={this.state.totalInvestedAmount} 
+                changeFromLastDay={this.state.changeFromLastDay} 
+                changeFromStartOfMonth={this.state.changeFromStartOfMonth}
+                schemeDetails={this.state.schemeDetails}
+              />
             </TabPanel>          
         </Tabs>
         

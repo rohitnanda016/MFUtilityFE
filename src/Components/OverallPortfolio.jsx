@@ -15,13 +15,27 @@ class OverallPortfolio extends React.Component{
         var changeFromStartOfMonthClass=this.props.changeFromStartOfMonth>=0?"profit":"loss";
         return(
             <React.Fragment>
+                <div style={{fontSize:"20px", marginBottom:"5px"}} className="subHeading">Value as of <b>{this.getCurrentDate()}</b></div>
                 <div className="item heading">
-                    <b>Overall Portfolio Details</b>
+                    <b>Net Worth</b>
                 </div>
-                <div className="customCard portFolioCard">
-                    <div style={{fontSize:"20px", marginBottom:"5px"}} className="subHeading">Value as of <b>{this.getCurrentDate()}</b></div>
+                <div className="customCard portFolioCard">                    
+                    <div>₹{this.props.totalPortfolioValue}</div>                             
+                </div>
+
+                <div className="item heading">
+                    <b>MF Portfolio Details</b>
+                </div>
+                <div className="customCard ">                    
                     <div>₹{this.props.totalPortfolioValue}</div>
-                    <div style={{display:"flex", fontSize:"15px", marginBottom:"8px"}}><div className={changeFromLastDayClass}>{Math.round(this.props.changeFromLastDay*100)/100}</div> &nbsp; {changeFromLastDayLabel}</div>
+                    {
+                        this.props.changeFromLastDay !=0 && 
+                        <div style={{display:"flex", fontSize:"15px", marginBottom:"8px"}}>
+                            <div className={changeFromLastDayClass}>
+                                {Math.round(this.props.changeFromLastDay*100)/100}
+                            </div> &nbsp; {changeFromLastDayLabel}
+                        </div>
+                    }
 
                     <div className="row">
                         <div className="col-sm-4">
@@ -36,8 +50,7 @@ class OverallPortfolio extends React.Component{
                             <div className="subHeading"><b>Change From Start of Month</b></div>
                             <div className={changeFromStartOfMonthClass}>₹{Math.round(this.props.changeFromStartOfMonth*100)/100}</div>
                         </div>  
-                    </div>
-                                 
+                    </div>                                 
                 </div>
             </React.Fragment>
         );

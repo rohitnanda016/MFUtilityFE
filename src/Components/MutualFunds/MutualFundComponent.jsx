@@ -11,8 +11,7 @@ class MutualFundComponent extends React.Component{
     }
     render(){
         return(
-            <React.Fragment>
-                <OverallPortfolio totalPortfolioValue={this.props.totalPortfolioValue} totalInvestedAmount={this.props.totalInvestedAmount} changeFromLastDay={this.props.changeFromLastDay} changeFromStartOfMonth={this.props.changeFromStartOfMonth}/>
+            <React.Fragment>                
                 <div>
                     <div className="item heading">
                         <b>Scheme Details</b>
